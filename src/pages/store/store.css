@@ -1,0 +1,173 @@
+body {
+    background-color: #F5F5F5;
+}
+
+
+button {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+
+
+/* Nav */
+
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1540px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+
+.nav__icon__wrapper {
+    display: flex;
+}
+
+.home__icon {
+    width: 200px;
+}
+
+.nav__icon__wrapper {
+    list-style-type: none;
+    display: flex;
+}
+
+.basket__amount {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 55px;
+    top: 13px;
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+    color: white;
+    border-radius: 50%;
+}
+
+.amount__active {
+    background-color: green;
+}
+
+.nav__icon {
+    width: 100px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.nav__btn {
+    position: relative;
+}
+
+/* Catalog */
+
+.store__main {
+    width: 1550px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+}
+
+.store__type {
+    margin: 20px;
+
+}
+
+.catalog {
+    position: relative;
+    width: 100%;
+}
+
+.catalog__wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.catalog__links {
+    display: flex;
+    justify-content: space-evenly;
+    height: 60px;
+    background-color: #262626;
+}
+
+.catalog__link {
+    background-color: #262626;
+    color: white;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.catalog__link:hover {
+    background-color: black;
+}
+
+.admin__add {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 25px;
+    color: white;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.admin__add__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+.admin__add__content {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+
+.admin__inp {
+    height: 30px;
+    width: 300px;
+}
+
+
+.admin__close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: red;
+    font-size: 20px;
+    width: 100px;
+    height: 25px;
+    color: white;
+}
+
+.admin__close:hover {
+    background-color: rgb(161, 6, 6);
+
+}
+
+
+.admin__add__btn {
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color: green;
+}
