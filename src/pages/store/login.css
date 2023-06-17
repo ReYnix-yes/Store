@@ -1,0 +1,75 @@
+.signin {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    transition: .4;
+    z-index: 11;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.signin__wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 350px;
+    height: 350px;
+    border-radius: 40px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.signin__login__title {
+    margin-top: 80px;
+}
+
+.signin__login__title,
+.signin__password__title {
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.signin__password__title {
+    margin-top: 30px;
+}
+
+.signin__login__inp,
+.signin__password__inp {
+    height: 30px;
+    font-size: 20px;
+}
+
+.signin__close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: white;
+    padding: 5px;
+    background-color: red;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.signin__close:hover {
+    background-color: rgb(122, 0, 0);
+}
+
+.signin__btn {
+    width: 150px;
+    height: 50px;
+    background-color: green;
+    transition: .4s;
+    margin-top: 20px;
+    border-radius: 20px;
+    color: white;
+}
+
+.signin__btn:hover {
+    background-color: rgb(1, 68, 1);
+    border-radius: 10px;
+}

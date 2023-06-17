@@ -5,11 +5,12 @@ import Home from "../home/Home";
 import "./store.css"
 import "./item.css"
 import "./basket.css"
+import "./login.css"
 
 // Icon
 
 import HomeLogo from "../../components/img/home/logo-svg-mob.svg";
-import user from "../../components/img/store/icon/user.svg"
+import userIcon from "../../components/img/store/icon/user.svg"
 import cart from "../../components/img/store/icon/cart.svg"
 
 
@@ -29,184 +30,286 @@ import f1 from "../../components/img/store/image/polymer/0dqb7a2pxq6c0ia_82cd7f7
 import g1 from "../../components/img/store/image/relatedProducts/n356loc8f5clqdi_864eaa10.jpg";
 import g2 from "../../components/img/store/image/relatedProducts/tojl83pdx0dsppw_a0b303cd.jpg";
 import g3 from "../../components/img/store/image/relatedProducts/topvd27hl465nwr_e79b32e2.jpg";
-
-
-
-
+import { useEffect } from "react";
 function Store() {
+    const [storeData, setStoreData] = useState([
+        {
+            type: 'Чугунные ванны',
+            items: [
+                {
+                    image: a1,
+                    title: 'Каприз 120x70',
+                    price: '25650',
+                    id: 'castIronBathtub-1',
+                },
+                // Добавьте другие товары типа Чугунные ванны
+            ],
+        },
+        {
+            type: 'Акриловые ванны',
+            items: [
+                {
+                    image: b1,
+                    title: 'Ванна акриловая OVIVA Base 170х70',
+                    price: '7570',
+                    id: 'acrylicBathtub-1',
+                },
+                // Добавьте другие товары типа Акриловые ванны
+            ],
+        },
+        {
+            type: 'Санфаянс (раковины, унитазы)',
+            items: [
+                {
+                    image: c1,
+                    title: 'Умывальник с постаментом Ностальжи',
+                    price: '3480',
+                    id: 'sanitaryware-1',
+                },
+                // Добавьте другие товары типа Санфаянс
+            ],
+        },
+        {
+            type: 'Мебель для ванны',
+            items: [
+                {
+                    image: d1,
+                    title: 'Тумба-умывальник на ножках Myrtos 45',
+                    price: '9281',
+                    id: 'bathFurniture-1',
+                },
+            ],
+        },
+        {
+            type: 'Чугунный поддон',
+            items: [
+                {
+                    image: e1,
+                    title: 'Поддон «Классик» 80x80',
+                    price: '13800',
+                    id: 'castIronPallet-1',
+                },
+            ],
+        },
+        {
+            type: 'Полимерпесчаные изделия',
+            items: [
+                {
+                    image: f1,
+                    title: 'Тумба-умывальник на ножках Myrtos 45',
+                    price: '1290',
+                    id: 'polymer-1',
+                },
+            ],
+        },
+        {
+            type: 'Сопутствующие товары',
+            items: [
+                {
+                    image: g1,
+                    title: 'Бачок «Уни»',
+                    price: '1700',
+                    id: 'relatedProduct-1',
+                },
+                {
+                    image: g2,
+                    title: 'Сифон АНИ для ванны с выпуском 1 1/2", с переливом, с гибкой трубой 40/50 E155',
+                    price: '580',
+                    id: 'relatedProduct-2',
+                },
+                {
+                    image: g3,
+                    title: 'Сифон АНИ для ванны с выпуском 1 1/2", с переливом, с гибкой трубой 40/50 E155',
+                    price: '285',
+                    id: 'relatedProduct-3',
+                },
+            ],
+        },
+        // Тут добавлять товары
+    ]);
+
+    const [userData, setUserData] = useState(
+        [
+            {
+                adimn: true,
+                access: {
+                    login: "admin",
+                    password: "admin",
+                },
+            },
+            {
+                admin: false,
+                access: {
+                    login: "Anestezia",
+                    password: "1234",
+                },
+            },
+        ],
+    );
+
+
+
+
+
+
     const [basketView, setBasketView] = useState('none')
-    const storeType = ['Чугунные ванны', 'Акриловые ванны', 'Санфаянс (раковины, унитазы)', 'Мебель для ванны', 'Чугунный поддон', 'Полимерпесчаные изделия', 'Сопутствующие товары']
-    const castIronBathtubs = [
-        {
-            image: a1,
-            title: 'Каприз 120x70',
-            type: '',
-            price: '25650',
-            id: 'castIronBathtub-1',
-        },
-    ];
-
-    const acrylicBathtubs = [
-        {
-            image: b1,
-            title: 'Ванна акриловая OVIVA Base 170х70',
-            type: '',
-            price: '7570',
-            id: 'acrylicBathtub-1',
-        },
-    ];
-
-    const sanitaryware = [
-        {
-            image: c1,
-            title: 'Умывальник с постаментом Ностальжи',
-            type: '',
-            price: '3480',
-            id: 'sanitaryware-1',
-        },
-    ];
-
-    const bathFurnitureStore = [
-        {
-            image: d1,
-            title: 'Тумба-умывальник на ножках Myrtos 45',
-            type: '',
-            price: '9281',
-            id: 'bathFurniture-1',
-        },
-    ];
-
-    const castIronPallet = [
-        {
-            image: e1,
-            title: 'Поддон «Классик» 80x80',
-            type: '',
-            price: '13800',
-            id: 'castIronPallet-1',
-        },
-    ];
-
-    const polymer = [
-        {
-            image: f1,
-            title: 'Тумба-умывальник на ножках Myrtos 45',
-            type: '',
-            price: '1290',
-            id: 'polymer-1',
-        },
-    ];
-
-    const relatedProducts = [
-        {
-            image: g1,
-            title: 'Бачок «Уни»',
-            type: '',
-            price: '1700',
-            id: 'relatedProduct-1',
-        },
-        {
-            image: g2,
-            title: 'Сифон АНИ для ванны с выпуском 1 1/2", с переливом, с гибкой трубой 40/50 E155',
-            type: '',
-            price: '580',
-            id: 'relatedProduct-2',
-        },
-        {
-            image: g3,
-            title: 'Сифон АНИ для ванны с выпуском 1 1/2", с переливом, с гибкой трубой 40/50 E155',
-            type: '',
-            price: '285',
-            id: 'relatedProduct-3',
-        },
-    ];
-
     const [basket, setBasket] = useState([]);
+    const [currentType, setCurrentType] = useState('Чугунные ванны');
+    const [currentStore, setCurrentStore] = useState([]);
 
-
-
-
-    const [currentType, setCurrentType] = useState(3)
-    const [currentStore, setCurrentStore] = useState(bathFurnitureStore)
-
-
-    function CastIronBathtubs() {
-        setCurrentType(0)
-        setCurrentStore(castIronBathtubs)
+    function updateCurrentStore(type) {
+        setCurrentType(type || 'Чугунные ванны');
+        const selectedStore = storeData.find((item) => item.type === type);
+        setCurrentStore(selectedStore ? selectedStore.items : []);
     }
 
-    function AcrylicBathtubs() {
-        setCurrentType(1)
-        setCurrentStore(acrylicBathtubs)
+    const storeTypes = {
+        CastIronBathtubs: 'Чугунные ванны',
+        AcrylicBathtubs: 'Акриловые ванны',
+        Sanitaryware: 'Санфаянс (раковины, унитазы)',
+        BathFurnitureStore: 'Мебель для ванны',
+        CastIronPallet: 'Чугунный поддон',
+        Polymer: 'Полимерпесчаные изделия',
+        RelatedProducts: 'Сопутствующие товары',
+    };
 
+    useEffect(() => {
+        updateCurrentStore('Чугунные ванны');
+    }, []);
+    function handleStoreTypeClick(storeType) {
+        updateCurrentStore(storeTypes[storeType]);
     }
 
-    function Sanitaryware() {
-        setCurrentType(2)
-        setCurrentStore(sanitaryware)
-
-    }
-
-    function BathFurnitureStore() {
-        setCurrentType(3)
-        setCurrentStore(bathFurnitureStore)
-
-    }
-
-    function CastIronPallet() {
-        setCurrentType(4)
-        setCurrentStore(castIronPallet)
-
-    }
-
-    function Polymer() {
-        setCurrentType(5)
-        setCurrentStore(polymer)
-
-    }
-
-    function RelatedProducts() {
-        setCurrentType(6)
-        setCurrentStore(relatedProducts)
-
-    }
 
     function notWork() {
         alert('Функция не поддерживается');
     }
-    const [basketAmount, setBasketAmount] = useState(0)
+
+    const [basketAmount, setBasketAmount] = useState(0);
+
     const addToBasket = (product) => {
         const newProduct = { ...product, id: uuidv4() };
-        setBasket([...basket, newProduct]);
-        setBasketAmount(prev => prev + 1);
+        setBasket((prevBasket) => [...prevBasket, newProduct]);
+        setBasketAmount((prevAmount) => prevAmount + 1);
     };
+
     const removeFromBasket = (id) => {
         const updatedBasket = basket.filter((item) => item.id !== id);
         setBasket(updatedBasket);
-        setBasketAmount(prev => prev - 1);
+        setBasketAmount((prevAmount) => prevAmount - 1);
     };
+
     const calculateTotalPrice = () => {
         const totalPrice = basket.reduce((accumulator, item) => accumulator + parseInt(item.price), 0);
         return totalPrice;
     };
 
-    const [adminAddVisible, setAdminAddVisible] = useState('none')
-
+    const [adminAddVisible, setAdminAddVisible] = useState('none');
+    const [newItemTitle, setNewItemTitle] = useState('');
+    const [newItemPrice, setNewItemPrice] = useState('');
     function adminAdd() {
-        switch (currentType) {
-            case 0:
-                castIronBathtubs.push(...castIronBathtubs, {title: "lox", price: '12332', id: 4, })
-                console.log(castIronBathtubs)
-                break;
+        if (currentType !== undefined && currentType !== null) {
+            const newItem = {
+                image: g1,
+                title: newItemTitle,
+                price: newItemPrice,
+                id: uuidv4(),
+            };
 
-            default:
-                break;
+            const updatedStoreData = storeData.map((store) => {
+                if (store.type === currentType) {
+                    const updatedItems = [...store.items, newItem];
+                    return { ...store, items: updatedItems };
+                }
+                return store;
+            });
+
+            setNewItemTitle('');
+            setNewItemPrice('');
+
+            setStoreData(updatedStoreData); // Update the store data with the new item
+
+            const selectedStore = updatedStoreData.find((store) => store.type === currentType);
+            setCurrentStore(selectedStore ? selectedStore.items : []);
+        } else {
+            alert('Ошибка! Товар невозможно добавить');
+        }
+    };
+
+    const [signinVisible, setSigninVisible] = useState('none');
+    const [login, setLogin] = useState('')
+    const [password, setPassword] = useState('')
+    const [user, setUser] = useState({})
+    function signin() {
+        let found = false;
+
+        userData.forEach((user) => {
+            if (user.access.login === login && user.access.password === password) {
+                setUser({ name: user.access.login });
+                setSigninVisible('none');
+                if (user.adimn) {
+                    setAdminEye('flex')
+                }
+                found = true;
+                return; // Прерываем выполнение цикла
+            }
+        });
+
+        if (!found) {
+            console.log('НЕ НАШЛО');
         }
     }
+
+    const [adminEye, setAdminEye] = useState('none')
+
+    function adminRights() {
+
+    }
+
+
+    function deleteItem(itemId) {
+        const updatedStoreData = storeData.map((store) => {
+            const updatedItems = store.items.filter((item) => item.id !== itemId);
+            return { ...store, items: updatedItems };
+        });
+
+        setStoreData(updatedStoreData);
+
+        const selectedStore = updatedStoreData.find((store) => store.type === currentType);
+        setCurrentStore(selectedStore ? selectedStore.items : []);
+    }
+
+
+
+
+
+
+
 
 
 
     return (
         <>
+            <div className="signin" style={{ display: signinVisible }}>
+                <div className="signin__wrapper">
+                    <span onClick={() => setSigninVisible('none')} className="signin__close">Закрыть</span>
+                    <h1 className="signin__login__title">Логин:</h1>
+                    <input
+                        type="text"
+                        className="signin__login__inp"
+                        value={login}
+                        onChange={(e) => setLogin(e.target.value)}
+                    />
+                    <h1 className="signin__password__title">Пароль</h1>
+                    <input
+                        type="password"
+                        className="signin__password__inp"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button onClick={signin} className="signin__btn">Войти</button>
+                </div>
+            </div>
             <span className="basket" style={{ display: basketView }}>
                 <div className="basket__wrapper">
                     <div className="basket__container">
@@ -245,9 +348,11 @@ function Store() {
                         <img src={HomeLogo} alt="" className="home__icon" />
                     </Link>
                     <ul className="nav__icon__wrapper">
-                        <button className="nav__btn">
-                            <img src={user} alt="" className="nav__icon" />
+                        <h1>{user.name}</h1>
+                        <button onClick={() => setSigninVisible('flex')} className="nav__btn">
+                            <img src={userIcon} alt="" className="nav__icon" />
                         </button>
+
                         <button onClick={() => { setBasketView('flex') }} className="nav__btn">
                             <img src={cart} alt="" className="nav__icon" />
                             <span className={`basket__amount ${basketAmount > 0 ? 'amount__active' : ''}`}>
@@ -257,21 +362,24 @@ function Store() {
                     </ul>
                 </nav>
                 <nav className="catalog__links">
-                    <button onClick={CastIronBathtubs} className="catalog__link">Чугунные ванны</button>
-                    <button onClick={AcrylicBathtubs} className="catalog__link">Акриловаые ванны</button>
-                    <button onClick={Sanitaryware} className="catalog__link">Санфаяс(раковины, унитазы)</button>
-                    <button onClick={BathFurnitureStore} className="catalog__link">Мебель для ванны</button>
-                    <button onClick={CastIronPallet} className="catalog__link">Чугунный поддон</button>
-                    <button onClick={Polymer} className="catalog__link">Полимерпесчанные изделия</button>
-                    <button onClick={RelatedProducts} className="catalog__link">Сопуствующие товары</button>
+                    <button onClick={() => handleStoreTypeClick('CastIronBathtubs')} className="catalog__link">Чугунные ванны</button>
+                    <button onClick={() => handleStoreTypeClick('AcrylicBathtubs')} className="catalog__link">Акриловаые ванны</button>
+                    <button onClick={() => handleStoreTypeClick('Sanitaryware')} className="catalog__link">Санфаяс(раковины, унитазы)</button>
+                    <button onClick={() => handleStoreTypeClick('BathFurnitureStore')} className="catalog__link">Мебель для ванны</button>
+                    <button onClick={() => handleStoreTypeClick('CastIronPallet')} className="catalog__link">Чугунный поддон</button>
+                    <button onClick={() => handleStoreTypeClick('Polymer')} className="catalog__link">Полимерпесчанные изделия</button>
+                    <button onClick={() => handleStoreTypeClick('RelatedProducts')} className="catalog__link">Сопуствующие товары</button>
                 </nav>
             </header>
             <main className="store__main">
-                <h1 className="store__type">{storeType[currentType]}</h1>
+                <h1 className="store__type">{currentStore.length > 0 && currentStore[0].type}</h1>
+
                 <div className="catalog">
                     <div className="catalog__wrapper">
                         {currentStore.map((item) => (
                             <div key={item.id} className="store__item">
+                                <button style={{display: adminEye}} className="item__delete" onClick={() => deleteItem(item.id)}>Удалить</button>
+
                                 <div className="store__image__wrapper">
                                     <img src={item.image} alt="" className="store__image" />
                                 </div>
@@ -287,26 +395,38 @@ function Store() {
                             </div>
                         ))}
 
-                        <button onClick={() => setAdminAddVisible('flex')} className="admin__item">
-                            <div className="plus"></div>
-                            <h1 className="admin__add__title">Добавить новый товар</h1>
-                        </button>
-                        <div className="admin__add" style={{display:adminAddVisible}}>
-                            <div className="admin__add__wrapper">
-                                <button onClick={() => setAdminAddVisible('none')} className="admin__close">Close</button>
-                                <div className="admin__add__content">
-                                    <p>Название товара:</p>
-                                    <input type="text" name="" id="" className="admin__inp" />
+                        <div style={{display: adminEye}} id="admin">
+                            <button onClick={() => setAdminAddVisible('flex')} className="admin__item">
+                                <div className="plus"></div>
+                                <h1 className="admin__add__title">Добавить новый товар</h1>
+                            </button>
+                            <div className="admin__add" style={{ display: adminAddVisible }}>
+                                <div className="admin__add__wrapper">
+                                    <button onClick={() => setAdminAddVisible('none')} className="admin__close">Close</button>
+                                    <div className="admin__add__content">
+                                        <p>Название товара:</p>
+                                        <input
+                                            type="text"
+                                            value={newItemTitle}
+                                            onChange={(e) => setNewItemTitle(e.target.value)}
+                                            className="admin__inp"
+                                        />
+                                    </div>
+                                    <div className="admin__add__content">
+                                        <p>Цена товара:</p>
+                                        <input
+                                            type="number"
+                                            value={newItemPrice}
+                                            onChange={(e) => setNewItemPrice(e.target.value)}
+                                            className="admin__inp"
+                                        />
+                                    </div>
+                                    <div className="admin__add__content">
+                                        <p className="admin__photo__title">Добавьте фото товара:</p>
+                                        <input type="file" name="" id="" disabled className="photo__inp" />
+                                    </div>
+                                    <button className="admin__add__btn" onClick={adminAdd} >Добавить</button>
                                 </div>
-                                <div className="admin__add__content">
-                                    <p>Цена товара:</p>
-                                    <input type="num" name="" id="" className="admin__inp" />
-                                </div>
-                                <div className="admin__add__content">
-                                    <p className="admin__photo__title">Добавьте фото товара:</p>
-                                    <input type="file" name="" id="" disabled className="photo__inp" />
-                                </div>
-                                <button className="admin__add__btn"  onClick={adminAdd} >Добавить</button>
                             </div>
                         </div>
                     </div>

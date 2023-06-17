@@ -117,3 +117,24 @@
     font-size: 25px;
     font-family: 'Nunito Sans', sans-serif;
 }
+
+
+.item__delete {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: red;
+}
+
+.item__delete:hover {
+    background-color: rgb(192, 0, 0);
+}
+
+#admin {
+    flex-direction: column;
+}
