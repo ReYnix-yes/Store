@@ -98,6 +98,7 @@
 .link {
     position: relative;
     display: flex;
+    text-decoration: none;
     justify-content: center;
     text-align: center;
     align-items: center;

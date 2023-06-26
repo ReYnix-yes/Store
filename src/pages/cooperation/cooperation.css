@@ -1,0 +1,28 @@
+.cooperation  {
+    padding: 50px;
+
+
+    
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+
+.cooperation__title {
+    font-size: 40px;
+}
+
+.cooperation__text {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.cooperation__wrapper {
+    display: flex;
+}
+
+.cooperation__image__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+}

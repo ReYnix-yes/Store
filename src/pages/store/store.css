@@ -128,8 +128,9 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 50%;
-    height: 80%;
+    width: 400px;
+    height: 400px;
+    color: white;
     background-color: rgba(0, 0, 0, 0.95);
 }
 
@@ -170,4 +171,14 @@ button {
     height: 50px;
     color: white;
     background-color: green;
+}
+
+.admin__new {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
 }
